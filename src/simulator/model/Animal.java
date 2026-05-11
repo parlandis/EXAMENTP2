@@ -71,9 +71,9 @@ public abstract class Animal implements Entity, AnimalInfo {
 	protected void init(AnimalMapView regMngr) {
 		this.regionMngr = regMngr;
 		if(this.pos == null) {
-			this.pos = new Vector2D(Utils.RAND.nextDouble(0, regMngr.getWidth() - 1) , Utils.RAND.nextDouble(0, regMngr.getHeight() - 1) );
+			this.pos = new Vector2D(Utils.RAND.nextDouble(0, regionMngr.getWidth() - 1) , Utils.RAND.nextDouble(0, regionMngr.getHeight() - 1) );
 		}
-		this.dest = new Vector2D(Utils.RAND.nextDouble(0, regMngr.getWidth() - 1) , Utils.RAND.nextDouble(0, regMngr.getHeight() - 1) );
+		this.dest = new Vector2D(Utils.RAND.nextDouble(0, regionMngr.getWidth() - 1) , Utils.RAND.nextDouble(0, regionMngr.getHeight() - 1) );
 	}
 	
 	public Animal deliverBaby() {
@@ -169,6 +169,8 @@ public abstract class Animal implements Entity, AnimalInfo {
 	abstract protected void setHungerStateAction();
 	abstract protected void setDangerStateAction();
 	abstract protected void setDeadStateAction();
+	
+	
 	public JSONObject asJSON() {
 		JSONObject res = new JSONObject();
 		res.put("pos", pos.asJSONArray());
